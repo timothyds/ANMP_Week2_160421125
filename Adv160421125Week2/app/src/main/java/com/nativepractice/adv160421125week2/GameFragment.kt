@@ -9,11 +9,6 @@ import androidx.navigation.Navigation
 import com.nativepractice.adv160421125week2.databinding.FragmentGameBinding
 import kotlin.random.Random
 
-/**
- * A simple [Fragment] subclass.
- * Use the [GameFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class GameFragment : Fragment() {
     private lateinit var binding: FragmentGameBinding
     override fun onCreateView(
@@ -53,6 +48,10 @@ class GameFragment : Fragment() {
         if(arguments != null) {
             val playerName = GameFragmentArgs.fromBundle(requireArguments()).playerName
             binding.txtTurn.text = "$playerName's Turn"
+        }
+        binding.btnTest.setOnClickListener {
+            val action = GameFragmentDirections.actionTestFragment()
+            Navigation.findNavController(it).navigate(action)
         }
 
     }

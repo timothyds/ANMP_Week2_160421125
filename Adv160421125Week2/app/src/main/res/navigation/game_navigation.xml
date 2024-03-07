@@ -3,16 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/game_navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/itemHome">
 
     <fragment
-        android:id="@+id/mainFragment"
+        android:id="@+id/itemHome"
         android:name="com.nativepractice.adv160421125week2.MainFragment"
         android:label="Main Screen"
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/actionGameFragment"
             app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/actionOptionFragment"
+            app:destination="@id/optionFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -25,6 +28,10 @@
         <action
             android:id="@+id/actionresultFragment"
             app:destination="@id/resultFragment" />
+        <action
+            android:id="@+id/actionTestFragment"
+            app:destination="@id/testFragment"
+            app:popUpTo="@id/itemHome" />
     </fragment>
     <argument
         android:name="player_name"
@@ -36,9 +43,29 @@
         tools:layout="@layout/fragment_result" >
         <action
             android:id="@+id/actionmainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/itemHome" />
         <argument
             android:name="player_score"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.nativepractice.adv160421125week2.TestFragment"
+        android:label="fragment_test"
+        tools:layout="@layout/fragment_test" />
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="com.nativepractice.adv160421125week2.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/itemHistory"
+        android:name="com.nativepractice.adv160421125week2.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+    <dialog
+        android:id="@+id/optionFragment"
+        android:name="com.nativepractice.adv160421125week2.OptionFragment"
+        android:label="fragment_option"
+        tools:layout="@layout/fragment_option" />
 </navigation>

@@ -8,11 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.nativepractice.adv160421125week2.databinding.FragmentMainBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MainFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
     override fun onCreateView(
@@ -33,5 +28,10 @@ class MainFragment : Fragment() {
             val action = MainFragmentDirections.actionGameFragment(playerName)
             Navigation.findNavController(it).navigate(action)
         }
+        binding.btnOption.setOnClickListener {
+            val action = MainFragmentDirections.actionOptionFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
+
     }
 }
